@@ -1,0 +1,405 @@
+/* ====== Variabel Warna Global ====== */
+:root {
+    --primary-color: #3498DB; 
+    /* for default settings color: 2C3E50 */
+    --secondary-color: #ECF0F1;
+    --accent-color: #3498DB;
+    --text-color: #333;
+    --light-text: #777;
+    --white: #FFF;
+}
+
+/* ====== Reset CSS ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ====== BODY STYLING DENGAN GRADIENT DARI ATAS KE BAWAH ====== */
+body {
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ====== HEADER ====== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: black; 
+    color: var(--white);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    position: relative;
+    z-index: 1100;
+}
+
+/* ====== Logo Styling ====== */
+.logo img {
+    height: 50px;
+    max-width: 100%;
+}
+
+/* ====== Navigasi Desktop ====== */
+.nav-links {
+    list-style: none;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* ====== Hamburger Menu Styling (Mobile) ====== */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    position: relative;
+    z-index: 1100;
+}
+
+/* ====== Navigasi Mobile (Tersembunyi Default) ====== */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: translateY(-10px);
+        z-index: 1000; 
+    }
+
+    /* Munculkan Navigasi Saat Active */
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Tampilkan Hamburger Menu di Mobile */
+    .hamburger {
+        display: block;
+    }
+}
+
+/* ====== HERO SECTION ====== */
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: none;
+    color: var(--white);
+    padding: 20px;
+}
+
+.animated-text {
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* ====== ABOUT ME ====== */
+.about {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.about-grid img {
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+/* ====== PORTFOLIO SECTION ====== */
+.portfolio {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Grid Portofolio */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.skills {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-top: 10px;
+}
+
+/* ====== IMAGE WRAPPER (GRID STYLE) ====== */
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.image-item {
+    position: relative;
+}
+
+.image-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.image-label {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+/* ====== CONTACT SECTION ====== */
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Menghilangkan dot di opsi pertama */
+select {
+    -webkit-appearance: none; 
+    /* Untuk Safari & Android */
+    -moz-appearance: none; 
+    /* Untuk Firefox */
+    appearance: none; 
+    /* Untuk browser modern */
+}
+
+/* Untuk menghilangkan dot di opsi pertama */
+select option[value=""] {
+    display: none;
+}
+
+/* ====== CONTACT FORM ====== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background: black;
+    color: var(--white);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: black;
+}
+
+/* ====== CONTAINER CONTACT ME ====== */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* FORM CONTACT ME */
+.contact-form {
+    flex: 1;
+    max-width: 400px;
+}
+
+/* ====== TABEL DATA KONTAK ====== */
+.contact-table-container {
+    flex: 1;
+    max-width: 600px;
+    overflow-x: auto; 
+    /* Agar tabel bisa di-scroll di layar kecil */
+    text-align: center;
+}
+
+/* Styling tabel */
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.contact-table th, 
+.contact-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.contact-table th {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Styling tombol hapus */
+.delete-row {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-row:hover {
+    background: darkred;
+}
+
+/* Tombol hapus semua data */
+#clear-table {
+    margin-top: 10px;
+    padding: 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#clear-table:hover {
+    background: darkred;
+}
+
+/* ====== RESPONSIF: TABEL DI BAWAH FORM UNTUK MOBILE ====== */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-table-container {
+        width: 100%;
+    }
+}
+
+/* ====== SOCIAL MEDIA ICONS ====== */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-icons a {
+    font-size: 32px;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: black;
+}
+
+/* ====== FOOTER ====== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    color: var(--white);
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 768px) {
+    .about-grid {
+        flex-direction: column;
+    }
+
+    .image-wrapper {
+        flex-direction: column;
+    }
+
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====== ANIMASI ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
